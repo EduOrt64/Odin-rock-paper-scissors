@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="cssstyles.css">  
+    <link rel="stylesheet" href="cssstyles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="body-game">
-    <div id="welcome-container">
-    <h1 class="welcome-text"><span class="welcome-word">Welcome</span> to Rock, Paper, Scissors</h1> 
-    <button class="but-play"><span class="but-text1">Let's Play!</span></button>
+    <div id="welcome-container" class="welcome-container">
+        <h1 class="welcome-text"><span class="welcome-word">Welcome</span> to Rock, Paper, Scissors</h1>
+        <button class="but-play"><span class="but-text1">Let's Play!</span></button>
     </div>
 
 
-<div class="game-screen">
-<h1 id="computer-score">Computer Score: 0</h1>
-<div class="image-container">
-<img src="rock.png">
-<img src="paper.png">
-<img src="scissors.png">
-</div>
-<h1 id="player1-score">Player 1   Score: 0</h1>
-</div>
+    <div class="game-screen hidden">
+        <h1 id="computer-score">Computer Score: 0</h1>
+        <div class="image-container">
+            <img name="rock" src="rock.png">
+            <img name="paper" src="paper.png">
+            <img name="scissors" src="scissors.png">
+        </div>
+        <h1 id="player1-score">Player 1 Score: 0</h1>
+    </div>
 
-<div class="choices">
-<img id="computer-choice-img" src="">
-<h2>computer's choice</h2>
-<h1 class="show-results-text"></h1>
-<img id="player1-choice-img" src="">
-<h2>Your choice</h2>
-<button class="next-round-but"><span class="next-round-text">Play Next Round</span></button>
-</div>
+    <div class="choices hidden">
+        <img id="computer-choice-img" src="">
+        <h2>computer's choice</h2>
+        <h1 class="show-results-text"></h1>
+        <img id="player1-choice-img" src="">
+        <h2>Your choice</h2>
+        <button class="next-round-but"><span class="next-round-text">Play Next Round</span></button>
+    </div>
 
 
-<script src="javaScript.js"></script>
+    <script src="javaScript.js"></script>
 </body>
+
 </html>
