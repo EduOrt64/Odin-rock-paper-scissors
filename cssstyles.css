@@ -4,30 +4,51 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
- 
-  align-items: center;
+
+  /* Align child items with flexbox */
+  display: flex;
   justify-content: center;
+  align-items: center;
+
+  /* Removes any default margin */
+  margin: 0;
+
+  /* Forces the body to cover the entire visible height */
+  min-height: 100vh;
+
+  /* Font properties are inherited by child elements */
+  font-family: "Source Code Pro", serif;
 }
 
-#welcome-container {
-  width: 100%;
-  height: auto;
+/* * {
+  outline: 2px solid greenyellow;
+} */
+
+
+/* class to hide elements */
+div.hidden {
+  display: none;
+}
+
+
+.welcome-container {
+  /* put this child item at the top */
+  align-self: start;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  visibility: visible;
-
 }
 
 .welcome-text {
-  font-family: "Source Code Pro", serif;
   color: aliceblue;
   text-align: center;
   font-size: 38px;
   font-weight: 900;
   margin-top: 40px;
 }
+
 .welcome-word {
   color: #25e83f;
 }
@@ -42,40 +63,46 @@ body {
   margin-top: 25px;
   cursor: pointer;
 }
+
 .but-play:hover {
   transform: scale(1.1);
 }
+
 .but-text1 {
-  font-family: "Source Code Pro", serif;
   color: antiquewhite;
   font-weight: 600;
 }
 
+
 .game-screen {
-  width: 90%;
-  height: 92vh;
-  display: none;
-  position: absolute;
-  bottom: 45px;
-  background-color: #050811da;
-  margin-top: 35px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  height: 90vh;
+  max-width: 90vw;
+  margin-inline: 5%;
   gap: 40px;
-  margin-left: 6%;
-
+  background-color: #050811da;
 }
 
 .image-container {
-  width: 100%;
-  height: 250px;
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
   gap: 25px;
 }
+
 .image-container img {
+  flex: 1;
   width: 100%;
-  height: 250px;
+  max-width: 33vw;
+  aspect-ratio: 1;
   border-radius: 12px;
   box-shadow: 5px 5px 1px #93f226, -5px -5px 1px #fb20ff;
   cursor: pointer;
@@ -85,67 +112,76 @@ body {
   transform: scale(0.9);
 }
 
-#computer-score {
+/* This can be instead a `score` class that you can put on both h1 */
+#computer-score,
+#player1-score {
+  flex: 1;
   text-align: center;
-  font-family: "Source Code Pro", serif;
   font-weight: 800;
   color: aliceblue;
+  margin-inline: 1rem;
+}
+
+#computer-score {
   margin-bottom: 100px;
 }
 
 #player1-score {
-  text-align: center;
-  font-family: "Source Code Pro", serif;
-  font-weight: 800;
-  color: aliceblue;
   margin-top: 80px;
 }
 
 .choices {
-    width: 90%;
-    height: 92vh;
-    background-color: #050811da;
-    display: none;
-    flex-direction: column;
-   position: fixed;
-    align-items: center;
-    justify-content: center;
-   bottom: 70px;
-   top: 30px;
-   left: 60px;
-   
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: 5%;
+  padding: 3rem;
 
+  background-color: #050811da;
 }
-.choices img{
-    width: 320px;
-    height: 225px;
-    border-radius: 12px;
-    box-shadow: 5px 5px 10px #f8f9f9, -5px -5px 10px #cfcdce;
 
+.choices img {
+  flex: 1;
+  width: 50%;
+  aspect-ratio: 16/12;
+  max-width: 320px;
+  max-height: 225px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 10px #f8f9f9, -5px -5px 10px #cfcdce;
 }
-.choices h2{ text-align: center;
-    font-family: "Source Code Pro", serif;
-    font-weight: 800;
-    color: aliceblue;}
 
-.choices h1{  text-align: center;
-    font-family: "Source Code Pro", serif;
-    font-weight: 800;
-    color: rgb(255, 7, 152);
-    margin-bottom: 45px;}
+.choices h2 {
+  text-align: center;
+  font-weight: 800;
+  color: aliceblue;
+}
 
-.choices button{ width: 150px;
-    height: 45px;
-    background-color: transparent;
-    border-color: rgb(0, 255, 157);
-    border-radius: 12px;
-    box-shadow: 5px 5px 10px #0bffaa, -5px -5px 10px #ff0bde;
-    margin-top: 25px;
-    cursor: pointer;}
-.next-round-text{  font-family: "Source Code Pro", serif;
-    color: antiquewhite;
-    font-weight: 600;}
+.choices h1 {
+  text-align: center;
+  font-weight: 800;
+  color: rgb(255, 7, 152);
+  margin-bottom: 45px;
+}
 
-.choices button:hover{
-    transform: scale(1.1);
+.choices button {
+  width: 150px;
+  height: 45px;
+  background-color: transparent;
+  border-color: rgb(0, 255, 157);
+  border-radius: 12px;
+  box-shadow: 5px 5px 10px #0bffaa, -5px -5px 10px #ff0bde;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.next-round-text {
+  color: antiquewhite;
+  font-weight: 600;
+}
+
+.choices button:hover {
+  transform: scale(1.1);
 }
